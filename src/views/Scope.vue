@@ -205,7 +205,15 @@
         window.addEventListener('resize', () => {
             positionAndSizeAllTabs()
         })
+
         specimen.setup(canvasContainer)
+
+        setInterval(() => {
+            specimen.resized(
+                canvasContainer.clientWidth,
+                canvasContainer.clientHeight
+            )
+        }, 500)
     })
 
     // enable draggables to be dropped into this
@@ -328,6 +336,24 @@
 <style scoped lang="scss">
     // mobile styles
     #specimen-container {
+        height: calc(100vh - 54px);
+        position: relative;
+    }
+    #main {
+        display: flex;
+        height: 100%;
+    }
+
+    #canvas-container {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dropzone-container {
         display: flex;
         flex-direction: column;
         min-height: fit-content;

@@ -174,7 +174,6 @@
                         dropzoneWrapper.style.height = 'calc(100% - 90px)'
                     }
                     content.style.overflowY = 'hidden'
-                    console.log('minimized')
                     tab.classList.add('minimized')
                     dropzoneWrapper.classList.add('resized')
                     // update the size and position of all tabs
