@@ -1,3 +1,26 @@
+<template>
+    <div class="tab" @click="selected" last-coords-x="0" last-coords-y="0">
+        <div class="drag">
+            <div class="buttons">
+                <span
+                    class="minimize material-icons-sharp"
+                    @click="minMaxWindow">
+                    minimize
+                </span>
+                <span
+                    class="docking material-symbols-sharp"
+                    @click="dockWindow">
+                    dock_to_right
+                </span>
+            </div>
+        </div>
+        <div class="content">
+            <slot></slot>
+        </div>
+        <div class="resize"></div>
+    </div>
+</template>
+
 <script setup lang="ts">
     import interact from 'interactjs'
     import {
@@ -275,29 +298,6 @@
         selectTab(tab)
     }
 </script>
-
-<template>
-    <div class="tab" @click="selected" last-coords-x="0" last-coords-y="0">
-        <div class="drag">
-            <div class="buttons">
-                <span
-                    class="minimize material-icons-sharp"
-                    @click="minMaxWindow">
-                    minimize
-                </span>
-                <span
-                    class="docking material-symbols-sharp"
-                    @click="dockWindow">
-                    dock_to_right
-                </span>
-            </div>
-        </div>
-        <div class="content">
-            <slot></slot>
-        </div>
-        <div class="resize"></div>
-    </div>
-</template>
 
 <style scoped lang="scss">
     // mobile styles
