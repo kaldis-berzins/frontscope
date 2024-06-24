@@ -1,5 +1,5 @@
-import {VisualizerExportModule} from './VisualizerInterface'
-import {P5Visualizer} from './P5Visualizer'
+import {VisualizerExportModule} from '../visualizers/VisualizerInterface'
+import {P5Visualizer} from '../visualizers/P5Visualizer'
 import {bigabs, floorSqrt, modulo} from '../shared/math'
 import type {GenericParamDescription} from '../shared/Paramable'
 import type {
