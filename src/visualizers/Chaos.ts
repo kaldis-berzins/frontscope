@@ -3,8 +3,8 @@ import {modulo} from '../shared/math'
 import {P5Visualizer, INVALID_COLOR} from './P5Visualizer'
 import {VisualizerExportModule} from './VisualizerInterface'
 import {ParamType} from '../shared/ParamType'
-import type {GenericParamDescription, ParamValues} from '@/shared/Paramable'
-import type {SequenceInterface} from '@/sequences/SequenceInterface'
+import type {GenericParamDescription, ParamValues} from '../shared/Paramable'
+import type {SequenceInterface} from '../sequences/SequenceInterface'
 
 /** md
 # Chaos Visualizer
@@ -46,6 +46,9 @@ enum ColorStyle {
     Index,
     Highlighting_one_walker,
 }
+
+const vizName = 'Chaos'
+const vizDescription = 'Chaos game played using a sequence to select moves'
 
 const paramDesc = {
     corners: {
@@ -176,8 +179,9 @@ const paramDesc = {
 // circles fade to the outside
 
 class Chaos extends P5Visualizer(paramDesc) {
-    name = 'Chaos'
-    description = 'Chaos game played using a sequence to select moves'
+    name = vizName
+    description = vizDescription
+
     first = NaN
     last = NaN
 
@@ -448,4 +452,8 @@ class Chaos extends P5Visualizer(paramDesc) {
     }
 }
 
-export const exportModule = new VisualizerExportModule(Chaos)
+export const exportModule = new VisualizerExportModule(
+    Chaos,
+    vizName,
+    vizDescription
+)
